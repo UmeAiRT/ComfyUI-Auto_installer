@@ -10,7 +10,7 @@ REM Places itself in the ComfyUI folder.
 cd "%~dp0ComfyUI"
 
 REM We prepare the base path, making sure there is no trailing backslash to avoid problems interpreting quotes.
-set "BASE_DIR=%~dp0"
+set "BASE_DIR=%~dp0ComfyUI"
 if "%BASE_DIR:~-1%"=="\" set "BASE_DIR=%BASE_DIR:~0,-1%"
 set "TMP_DIR=%BASE_DIR%\ComfyUI\temp"
 
