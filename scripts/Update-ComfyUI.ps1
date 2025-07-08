@@ -18,8 +18,8 @@
 $InstallPath = (Split-Path -Path $PSScriptRoot -Parent)
 
 $comfyPath = Join-Path $InstallPath "ComfyUI"
-$customNodesPath = Join-Path $InstallPath "custom_nodes"
-$workflowPath = Join-Path $InstallPath "user\default\workflows\UmeAiRT-Workflow"
+$customNodesPath = Join-Path $comfyPath "custom_nodes"
+$workflowPath = Join-Path $comfyPath "user\default\workflows\UmeAiRT-Workflow"
 $venvPython = Join-Path $comfyPath "venv\Scripts\python.exe"
 $logPath = Join-Path $InstallPath "logs"
 $logFile = Join-Path $logPath "update_log.txt"
