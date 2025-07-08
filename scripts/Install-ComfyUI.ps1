@@ -92,7 +92,7 @@ function Download-File {
         $fileName = Split-Path -Path $Uri -Leaf
         if (Get-Command 'aria2c' -ErrorAction SilentlyContinue) {
             Write-Log "  - Downloading $fileName"
-            $aria_args = "-c -x 16 -s 16 -k 1M --dir=`"$((Split-Path $OutFile -Parent))`" --out=`"$((Split-Path $OutFile -Leaf))`" `"$Uri`""
+            $aria_args = "--disable-ipv6 -c -x 16 -s 16 -k 1M --dir=`"$((Split-Path $OutFile -Parent))`" --out=`"$((Split-Path $OutFile -Leaf))`" `"$Uri`""
             Invoke-AndLog "aria2c" $aria_args
         } else {
             Write-Log "Aria2 not found. Falling back to standard download: $fileName" -Color Yellow
@@ -230,7 +230,7 @@ if (-not (Test-Path $csvPath)) {
     Write-Log "  - ERREUR: Impossible de télécharger la liste des custom nodes. Étape ignorée." -Color Red
 } else {
     $customNodes = Import-Csv -Path $csvPath
-    $customNodesPath = Join-Path $InstallPath "custom_nodes"
+    $customNodesPath = Join-Path $comfyPath "custom_nodes"
 
     foreach ($node in $customNodes) {
         $nodeName = $node.Name
@@ -318,7 +318,7 @@ Remove-Item $sageWheel -ErrorAction SilentlyContinue
 
 # --- Étape 7: Téléchargement des Workflows et Settings ---
 Write-Log "`nStep 7: Downloading Workflows & Settings..." -Color Yellow
-$userDefaultPath = Join-Path $InstallPath "user\default"; New-Item -Path $userDefaultPath -ItemType Directory -Force | Out-Null
+$userDefaultPath = Join-Path $comfyPath "user\default"; New-Item -Path $userDefaultPath -ItemType Directory -Force | Out-Null
 $workflowPath = Join-Path $userDefaultPath "workflows"; New-Item -Path $workflowPath -ItemType Directory -Force | Out-Null
 $workflowCloneDest = Join-Path $workflowPath "UmeAiRT-Workflow"
 $settingsFilePath = Join-Path $userDefaultPath "comfy.settings.json"
