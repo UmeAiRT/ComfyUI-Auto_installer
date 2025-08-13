@@ -1,10 +1,10 @@
 # UmeAiRT's ComfyUI Auto-Installer
 
-![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B-blue.svg)
-![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-lightgrey.svg)
+![PowerShell / Bash](https://img.shields.io/badge/Shell-PowerShell%20%7C%20Bash-blue.svg)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-lightgrey.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-This project provides a suite of PowerShell scripts to fully automate the installation and configuration of ComfyUI on Windows. The approach uses a clean installation based on `git` and a Python virtual environment (`venv`), ensuring an isolated, easy-to-update, and maintainable setup.
+This project provides a suite of scripts to fully automate the installation and configuration of ComfyUI on Windows and Linux. The approach uses a clean installation based on `git` and a Python virtual environment (`venv`), ensuring an isolated, easy-to-update, and maintainable setup.
 
 ## Features
 
@@ -23,11 +23,53 @@ This project provides a suite of PowerShell scripts to fully automate the instal
 
 ## Prerequisites
 
+**For Windows:**
 - Windows 10 or Windows 11 (64-bit).
 - An active internet connection.
 - An NVIDIA GPU is strongly recommended to use the models.
 
-## Installation and Usage
+**For Linux:**
+- A modern Linux distribution (e.g., Ubuntu 22.04, Arch Linux).
+- An active internet connection.
+- An NVIDIA GPU is strongly recommended to use the models.
+- The `install.sh` script will check for the following required packages: `git`, `python3`, `aria2c`, `jq`, `g++`. You must install them using your system's package manager if they are not present.
+  - For Debian/Ubuntu: `sudo apt-get update && sudo apt-get install git python3 python3-venv aria2 jq g++`
+  - For Arch Linux: `sudo pacman -Syu git python python-venv aria2 jq gcc`
+
+## Installation for Linux
+
+1.  **Download the Project:**
+    ```bash
+    git clone https://github.com/UmeAiRT/ComfyUI-Auto_installer.git
+    cd ComfyUI-Auto_installer
+    ```
+
+2.  **Run the Installer:**
+    - Make the script executable:
+      ```bash
+      chmod +x install.sh
+      ```
+    - Run the installer:
+      ```bash
+      ./install.sh
+      ```
+    - The script will guide you through the process, cloning ComfyUI, setting up a virtual environment, and installing all dependencies.
+
+3.  **Download Models (Optional):**
+    - After the main installation, you can run the model downloader script:
+      ```bash
+      ./download_models.sh
+      ```
+
+## Post-Installation Usage (Linux)
+
+- **To start ComfyUI:** `./start.sh`
+- **To update ComfyUI and custom nodes:** `./update.sh`
+- **To download more models:** `./download_models.sh`
+
+---
+
+## Installation for Windows
 
 The entire process is designed to be as simple as possible.
 
@@ -45,7 +87,7 @@ The entire process is designed to be as simple as possible.
 
 At the end of the process, your ComfyUI installation will be complete and ready to use.
 
-## Post-Installation Usage
+## Post-Installation Usage (Windows)
 
 Three main `.bat` files will be available in your folder to manage the application:
 

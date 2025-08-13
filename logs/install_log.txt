@@ -1,0 +1,6 @@
+[2025-08-13 12:11:43] Checking for required system dependencies...
+[2025-08-13 12:11:44] The following required dependencies are not installed: aria2c
+[2025-08-13 12:11:44] Please install them using your system's package manager.
+[2025-08-13 12:11:44] For Debian/Ubuntu: sudo apt-get update && sudo apt-get install aria2c
+[2025-08-13 12:11:44] For Arch Linux: sudo pacman -Syu aria2c
+[2025-08-13 12:11:44] For Fedora: sudo dnf install aria2c

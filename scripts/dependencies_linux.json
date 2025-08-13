@@ -1,0 +1,65 @@
+{
+  "tools": {},
+  "repositories": {
+    "comfyui": {
+        "url": "https://github.com/comfyanonymous/ComfyUI.git"
+    },
+    "workflows": {
+        "url": "https://github.com/UmeAiRT/ComfyUI-Workflows"
+    }
+  },
+  "pip_packages": {
+    "upgrade": [
+      "pip",
+      "wheel"
+    ],
+    "torch": {
+      "packages": "torch==2.8.0.dev20250627 torchvision torchaudio",
+      "index_url": "https://download.pytorch.org/whl/nightly/cu129"
+    },
+    "comfyui_requirements": "requirements.txt",
+    "wheels": [],
+    "standard": [
+      "facexlib",
+      "cython",
+      "onnxruntime",
+      "onnxruntime-gpu",
+      "triton",
+      "insightface",
+      "nunchaku"
+    ],
+    "pinned": [
+      "numpy==1.26.4",
+      "pandas",
+      "transformers==4.49.0"
+    ],
+    "git_repos": [
+      {
+        "name": "xformers",
+        "url": "https://github.com/facebookresearch/xformers.git",
+        "commit": "main"
+      },
+      {
+        "name": "SageAttention",
+        "url": "https://github.com/thu-ml/SageAttention",
+        "commit": "main"
+      },
+      {
+        "name": "apex",
+        "url": "https://github.com/NVIDIA/apex.git",
+        "commit": "master",
+        "install_options": "-v --disable-pip-version-check --no-cache-dir --no-build-isolation"
+      }
+    ]
+  },
+  "files": {
+    "comfy_settings": {
+      "url": "https://huggingface.co/UmeAiRT/ComfyUI-Auto_installer/resolve/main/others/comfy.settings.json",
+      "destination": "user/default/comfy.settings.json"
+    },
+    "custom_nodes_csv": {
+        "url": "https://github.com/UmeAiRT/ComfyUI-Auto_installer/raw/main/scripts/custom_nodes.csv",
+        "destination": "scripts/custom_nodes.csv"
+    }
+  }
+}
